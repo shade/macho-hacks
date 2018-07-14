@@ -1,0 +1,15 @@
+{
+  "name": "bitcore",
+  "version": "1.0.0",
+  "description": "The core functionality integration for the main bitcoin wallet.",
+  "main": "index.js",
+  "dependencies": {
+    "bitcoinjs-lib": "^3.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

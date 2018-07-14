@@ -4,6 +4,7 @@
   "description": "The core functionality integration for the main bitcoin wallet.",
   "main": "index.js",
   "dependencies": {
+    "bitcoin-live-transactions": "0.0.13",
     "bitcoinjs-lib": "^3.3.2"
   },
   "devDependencies": {},

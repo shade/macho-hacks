@@ -120,7 +120,39 @@ async function fetchDepositAddress() {
       };
   };
 
+////deposit function/////
+//user defined
+var acceptableLeverageLevel = 3;
 
+//bitmex values
+var bitmexValues = []
+
+bitmexValues.push(hlib.fetchMarkPrice())
+bitmexValues.push(hlib.fetchLeverage())
+bitmexValues.push(hlib.fetchBalance())
+bitmexValues.push(hlib.fetchPositionSize())
+
+  //logic to buy contracts or deposit to bitmex
+  ; async function deposit(newBTCamount, acceptableLeverageLevel) {
+    return Promise.all(bitmexValues)
+      .then(bitmexValue => {
+
+        //Determine contracts needed
+        var contractBalance = bitmexValue[2] * bitmexValue[0] / 100000000
+        var newContractsNeeded = newBTCamount * bitmexValue[0];
+        var totalContractsNeeded = bitmexValue[3] + newContractsNeeded;
+
+        //conditional for deposit or not
+        if (totalContractsNeeded / contractBalance < acceptableLeverageLevel) {
+          return Promise.resolve(0)
+        } else {
+          hlib.fetchDepositAddress()
+          //send BTC
+          var sendAmount = totalContractsNeeded / 2 - contractBalance
+          return Promise.resolve(sendAmount)
+        }
+      })
+  }
   
 module.exports = {
     fetchMarkPrice : fetchMarkPrice,
@@ -128,5 +160,6 @@ module.exports = {
     submitOrder : submitOrder,
     fetchPositionSize : fetchPositionSize,
     fetchLeverage : fetchLeverage,
-    fetchBalance : fetchBalance
+    fetchBalance : fetchBalance,
+    deposit : deposit
 }

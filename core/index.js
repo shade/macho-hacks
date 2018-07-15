@@ -10,6 +10,8 @@ module.exports.HWallet = (() => {
   let hashkey = null;
   let hashCounter = 0;
   let usedMap = {};
+  let amountLocal = 0;
+
   const sha256 = bitcoinjs.crypto.sha256;
 
   class HWallet {
@@ -22,27 +24,32 @@ module.exports.HWallet = (() => {
 
     newReceive (amount) {
       let { address } = this._genAddress();
-      return new Promise((resolve, reject) => {
-        bitcoin.events.on(this.address, tx => {
-          tx.vout.forEach(out => {
-            if (out.address === this.address && out.amount === amount) {
-              console.info('Wooohoo, payment received');
-              // TODO: Add bitmex Hedge Payment function
-              // Remove this listener for memory management
-              bitcoin.events.removeListener(this.address, arguments.callee);
-            }
+      return {
+        address,
+        wait: new Promise((resolve, reject) => {
+          bitcoin.events.on(this.address, tx => {
+            tx.vout.forEach(async out => {
+              if (out.address === this.address && out.amount === amount) {
+                //await deposit = bitmex.fetchDepositAddress();
+                //this.depositOrSplit(amount);
+                // Remove this listener for memory management
+                bitcoin.events.removeListener(this.address, arguments.callee);
+              }
+            });
           });
-        });
-      });
+        })
+      };
     }
+    despo
     _genAddress () {
-      // Deteministically generate a new private key and increment.
       hashkey = sha256(hashkey);
       hashCounter++;
-      usedMap[hashCounter] = true;
 
       // Create the key pair and return it.
       const pair = bitcoinjs.ECPair.fromPrivateKey(hashkey);
+
+      // Deteministically generate a new private key and increment.
+      usedMap[pair] = hashkey;
 
       return bitcoinjs.payments.p2pkh({
         pubkey: pair.publicKey
@@ -54,8 +61,9 @@ module.exports.HWallet = (() => {
      * @param {number} amount - number of satoshis we're sending.
      * @returns {Promise}
      */
-    send (toAddress, amount) {
+    send (toAddress, amount, bitmex) {
       const txb = new bitcoin.TransactionBuilder(regtest)
+      var a = Object.keys(usedMap)
 
       txb.addInput(unspent0.txId, unspent0.vout);
       txb.addOutput(toAddress, amount);
@@ -63,6 +71,8 @@ module.exports.HWallet = (() => {
       txb.sign(0, pk1);
 
       tx = txb.build();
+
+      amountLocal -= amount;
 
       return new Promise((resolve, reject) => {
         regtestUtils.broadcast(tx.toHex(), err => {

@@ -5,7 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "bitcoin-live-transactions": "0.0.13",
-    "bitcoinjs-lib": "^3.3.2"
+    "bitcoinjs-lib": "^3.3.2",
+    "node-fetch": "^2.1.2",
+    "qs": "^6.5.2"
   },
   "devDependencies": {},
   "scripts": {

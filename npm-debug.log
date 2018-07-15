@@ -1,0 +1,43 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'whoami' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.1
+4 verbose request uri https://registry.npmjs.org/-/whoami
+5 verbose request no auth needed
+6 info attempt registry request try #1 at 10:33:32 PM
+7 verbose request using bearer token for auth
+8 verbose request id d116fe36700e10ee
+9 http request GET https://registry.npmjs.org/-/whoami
+10 http 401 https://registry.npmjs.org/-/whoami
+11 verbose headers { date: 'Sun, 15 Jul 2018 05:33:32 GMT',
+11 verbose headers   'content-type': 'application/json',
+11 verbose headers   'content-length': '2',
+11 verbose headers   connection: 'keep-alive',
+11 verbose headers   'set-cookie': [ '__cfduid=d13cd152c6f90f319016873a90b92d6bb1531632812; expires=Mon, 15-Jul-19 05:33:32 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+11 verbose headers   'cf-ray': '43a9dad3da8e3b32-YVR',
+11 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+11 verbose headers   'npm-notice': 'Due to a recent security incident, all user tokens have been invalidated. Please see https://status.npmjs.org/incidents/dn7c1fgrr7ng for more details. To generate a new token, visit https://www.npmjs.com/settings/~/tokens or run "npm login".',
+11 verbose headers   server: 'cloudflare' }
+12 warn notice Due to a recent security incident, all user tokens have been invalidated. Please see https://status.npmjs.org/incidents/dn7c1fgrr7ng for more details. To generate a new token, visit https://www.npmjs.com/settings/~/tokens or run "npm login".
+13 verbose stack Error: Registry returned 401 for GET on https://registry.npmjs.org/-/whoami
+13 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+13 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:280:14)
+13 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+13 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+13 verbose stack     at emitTwo (events.js:106:13)
+13 verbose stack     at Request.emit (events.js:191:7)
+13 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+13 verbose stack     at emitOne (events.js:96:13)
+13 verbose stack     at Request.emit (events.js:188:7)
+13 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+14 verbose statusCode 401
+15 verbose cwd /Users/joetho/Documents/personal/bitcore
+16 error Darwin 17.6.0
+17 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "whoami"
+18 error node v6.10.1
+19 error npm  v3.10.10
+20 error code E401
+21 error Registry returned 401 for GET on https://registry.npmjs.org/-/whoami
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]

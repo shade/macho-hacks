@@ -28,7 +28,7 @@ module.exports.HWallet = (() => {
         address,
         wait: new Promise((resolve, reject) => {
           bitcoin.events.on(aObj.address, tx => {
-            tx.vout.forEach(async (out,i) => {
+            tx.vout.forEach((out,i) => {
               if (out.address === aObj.address && out.amount === amount) {
                 //await deposit = bitmex.fetchDepositAddress();
                 //this.depositOrSplit(amount);
@@ -37,6 +37,7 @@ module.exports.HWallet = (() => {
                 aObj.txid = txid;
                 aObj.amount = amount;
                 aObj.vout = i;
+
                 bitcoin.events.removeListener(this.address, arguments.callee);
                 resolve(txid);
               }
@@ -121,15 +122,12 @@ module.exports.HWallet = (() => {
         usedMap[i - 1].txid = tx.id();
         usedMap[i - 1].vout = 1;
 
-
         regtestUtils.broadcast(tx.toHex(), err => {
           if (err) {
             reject(err);
             return;
           }
 
-          // TODO: Clean up the spent outputs,
-          // TODO: Update Bitmex!
           console.log(`Woohoo sent tx to ${toAddress}`);
           resolve(tx.id());
           amountLocal -= amount;
@@ -140,3 +138,4 @@ module.exports.HWallet = (() => {
 
   return HWallet;
 })();
+

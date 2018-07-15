@@ -19,7 +19,7 @@ var apiFetches = [];
     console.log(res)
 });
 
-var add =  hlib.fetchDepositAddress().then(res => { 
+var add =  hlib.fetchDepositAddress().then(res => {
     console.log("Deposit address is: ");
     console.log(res);
 });
@@ -53,7 +53,7 @@ Promise.all([pos, price, margin, balance]).then( res => {
     console.log("Effective leverage is: ")
     console.log(res[2])
     //if(res[2] > threshold){ (If our leverage is over our threshold we need to deposit to add collateral)
-        if(true){
+    if (true) {
         console.log("We need to send funds to decrease leverage!");
         //Calculate how much we need to send to have 2x leverage
         //Our required amount of BTC on mex is half of our total balance if we are using 2x

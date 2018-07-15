@@ -1,43 +1,105 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'whoami' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
 2 info using npm@3.10.10
 3 info using node@v6.10.1
-4 verbose request uri https://registry.npmjs.org/-/whoami
-5 verbose request no auth needed
-6 info attempt registry request try #1 at 10:33:32 PM
-7 verbose request using bearer token for auth
-8 verbose request id d116fe36700e10ee
-9 http request GET https://registry.npmjs.org/-/whoami
-10 http 401 https://registry.npmjs.org/-/whoami
-11 verbose headers { date: 'Sun, 15 Jul 2018 05:33:32 GMT',
-11 verbose headers   'content-type': 'application/json',
-11 verbose headers   'content-length': '2',
-11 verbose headers   connection: 'keep-alive',
-11 verbose headers   'set-cookie': [ '__cfduid=d13cd152c6f90f319016873a90b92d6bb1531632812; expires=Mon, 15-Jul-19 05:33:32 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
-11 verbose headers   'cf-ray': '43a9dad3da8e3b32-YVR',
-11 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
-11 verbose headers   'npm-notice': 'Due to a recent security incident, all user tokens have been invalidated. Please see https://status.npmjs.org/incidents/dn7c1fgrr7ng for more details. To generate a new token, visit https://www.npmjs.com/settings/~/tokens or run "npm login".',
-11 verbose headers   server: 'cloudflare' }
-12 warn notice Due to a recent security incident, all user tokens have been invalidated. Please see https://status.npmjs.org/incidents/dn7c1fgrr7ng for more details. To generate a new token, visit https://www.npmjs.com/settings/~/tokens or run "npm login".
-13 verbose stack Error: Registry returned 401 for GET on https://registry.npmjs.org/-/whoami
-13 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
-13 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:280:14)
-13 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
-13 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
-13 verbose stack     at emitTwo (events.js:106:13)
-13 verbose stack     at Request.emit (events.js:191:7)
-13 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
-13 verbose stack     at emitOne (events.js:96:13)
-13 verbose stack     at Request.emit (events.js:188:7)
-13 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
-14 verbose statusCode 401
-15 verbose cwd /Users/joetho/Documents/personal/bitcore
-16 error Darwin 17.6.0
-17 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "whoami"
-18 error node v6.10.1
-19 error npm  v3.10.10
-20 error code E401
-21 error Registry returned 401 for GET on https://registry.npmjs.org/-/whoami
-22 error If you need help, you may report this error at:
-22 error     <https://github.com/npm/npm/issues>
-23 verbose exit [ 1, true ]
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/joetho/Documents/personal/bitcore',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/joetho/.npm/bitcore/1.0.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/joetho/.npm correctMkdir not in flight; initializing
+10 info lifecycle bitcore@1.0.0~prepublish: bitcore@1.0.0
+11 silly lifecycle bitcore@1.0.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/joetho/.npm/bitcore/1.0.0/package.tgz',
+12 verbose tar pack   '/Users/joetho/Documents/personal/bitcore' ]
+13 verbose tarball /Users/joetho/.npm/bitcore/1.0.0/package.tgz
+14 verbose folder /Users/joetho/Documents/personal/bitcore
+15 verbose addLocalTarball adding from inside cache /Users/joetho/.npm/bitcore/1.0.0/package.tgz
+16 verbose correctMkdir /Users/joetho/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd bitcore@1.0.0
+18 verbose afterAdd /Users/joetho/.npm/bitcore/1.0.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/joetho/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/joetho/.npm/bitcore/1.0.0/package/package.json written
+21 silly publish { name: 'bitcore',
+21 silly publish   version: '1.0.0',
+21 silly publish   description: 'The core functionality integration for the main bitcoin wallet.',
+21 silly publish   main: 'index.js',
+21 silly publish   dependencies:
+21 silly publish    { 'bitcoin-live-transactions': '0.0.13',
+21 silly publish      'bitcoinjs-lib': '^3.3.2',
+21 silly publish      'node-fetch': '^2.1.2',
+21 silly publish      qs: '^6.5.2' },
+21 silly publish   devDependencies: {},
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   author: '',
+21 silly publish   license: 'ISC',
+21 silly publish   readme: '# Hedging Wallet\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '48d8391662232a4a508024263b6475fb386ae677',
+21 silly publish   _id: 'bitcore@1.0.0',
+21 silly publish   _shasum: 'a3de557e32e1401464da2d3f7866f71e7a8f3deb',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name bitcore
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'bitcore',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'bitcore',
+26 silly mapToRegistry   name: 'bitcore',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/bitcore
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/joetho/.npm/bitcore/1.0.0/package.tgz
+30 verbose request uri https://registry.npmjs.org/bitcore
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 10:38:39 PM
+33 verbose request using bearer token for auth
+34 verbose request id 5d5b28e7a877f876
+35 http request PUT https://registry.npmjs.org/bitcore
+36 http 403 https://registry.npmjs.org/bitcore
+37 verbose headers { date: 'Sun, 15 Jul 2018 05:38:40 GMT',
+37 verbose headers   'content-type': 'application/json',
+37 verbose headers   'transfer-encoding': 'chunked',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'set-cookie': [ '__cfduid=da34ec16ce8e7fcfb66f899e643f5a9bc1531633119; expires=Mon, 15-Jul-19 05:38:39 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+37 verbose headers   'cf-ray': '43a9e256eb423b80-YVR',
+37 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+37 verbose headers   'npm-notice': 'Due to a recent security incident, all user tokens have been invalidated. Please see https://status.npmjs.org/incidents/dn7c1fgrr7ng for more details. To generate a new token, visit https://www.npmjs.com/settings/~/tokens or run "npm login".',
+37 verbose headers   server: 'cloudflare',
+37 verbose headers   'content-encoding': 'gzip' }
+38 warn notice Due to a recent security incident, all user tokens have been invalidated. Please see https://status.npmjs.org/incidents/dn7c1fgrr7ng for more details. To generate a new token, visit https://www.npmjs.com/settings/~/tokens or run "npm login".
+39 verbose request invalidating /Users/joetho/.npm/registry.npmjs.org/bitcore on PUT
+40 error publish Failed PUT 403
+41 verbose stack Error: You do not have permission to publish "bitcore". Are you logged in as the correct user? : bitcore
+41 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+41 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+41 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:216:7
+41 verbose stack     at Gunzip.onEnd (zlib.js:227:5)
+41 verbose stack     at emitNone (events.js:91:20)
+41 verbose stack     at Gunzip.emit (events.js:185:7)
+41 verbose stack     at endReadableNT (_stream_readable.js:974:12)
+41 verbose stack     at _combinedTickCallback (internal/process/next_tick.js:80:11)
+41 verbose stack     at process._tickCallback (internal/process/next_tick.js:104:9)
+42 verbose statusCode 403
+43 verbose pkgid bitcore
+44 verbose cwd /Users/joetho/Documents/personal/bitcore
+45 error Darwin 17.6.0
+46 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+47 error node v6.10.1
+48 error npm  v3.10.10
+49 error code E403
+50 error You do not have permission to publish "bitcore". Are you logged in as the correct user? : bitcore
+51 error If you need help, you may report this error at:
+51 error     <https://github.com/npm/npm/issues>
+52 verbose exit [ 1, true ]

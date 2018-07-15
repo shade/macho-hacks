@@ -85,7 +85,7 @@ async function fetchDepositAddress() {
     };
   };
 
-  async function getPositionSize() {
+  async function fetchPositionSize() {
     try {
       const result = await makeRequest('GET',  'position', {
         symbol: 'XBTUSD',
@@ -96,11 +96,37 @@ async function fetchDepositAddress() {
     };
   };
 
+  async function fetchLeverage() {
+    try {
+        const result = await makeRequest('GET',  'user/margin', {
+          currency: 'XBt',
+        });
+        //console.log("margin result is: ")
+        //console.log(result.marginLeverage)
+        return result.marginLeverage;
+      } catch (e) {
+        console.error(e);
+      };
+  };
+
+  async function fetchBalance() {
+    try {
+        const result = await makeRequest('GET',  'user/walletSummary', {
+          currency: 'XBt',
+        });
+        return result[2].walletBalance;
+      } catch (e) {
+        console.error(e);
+      };
+  };
+
 
   
 module.exports = {
     fetchMarkPrice : fetchMarkPrice,
     fetchDepositAddress : fetchDepositAddress,
     submitOrder : submitOrder,
-    getPositionSize : getPositionSize
+    fetchPositionSize : fetchPositionSize,
+    fetchLeverage : fetchLeverage,
+    fetchBalance : fetchBalance
 }

@@ -37,11 +37,11 @@ Promise.all([pos, price]).then( res => {
     console.log(res[0])
     console.log("Current price is: ")
     console.log(res[1])
-    console.log("Contracts needed to hedge: ")
-    var targPos = fakeBalance * res[1];
+    console.log("Short contracts needed to hedge: ")
+    var targPos = -1 * (fakeBalance * res[1]);
     console.log(targPos)
     console.log("Contracts to add/remove to be balanced: ")
-    var change = res[0] - targPos;
+    var change = -1 * (res[0] - targPos);
     console.log(change)
 });
 
